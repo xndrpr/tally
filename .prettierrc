@@ -1,0 +1,22 @@
+{
+    "printWidth": 100,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf",
+    "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+    "importOrder": [
+        "^react",
+        "^react-dom",
+        "^react-router-dom",
+        "^@tanstack/react-query",
+        "^@emotion",
+        "^@/*"
+    ],
+    "importOrderSeparation": false,
+    "importOrderSortSpecifiers": true
+}
