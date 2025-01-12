@@ -17,6 +17,9 @@ importers:
       '@emotion/styled':
         specifier: ^11.14.0
         version: 11.14.0(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react@18.3.1)
+      '@tanstack/react-query':
+        specifier: ^5.64.0
+        version: 5.64.0(react@18.3.1)
       jotai:
         specifier: ^2.11.0
         version: 2.11.0(@types/react@18.3.18)(react@18.3.1)
@@ -712,6 +715,14 @@ packages:
     engines: {node: '>=14'}
     peerDependencies:
       '@svgr/core': '*'
+
+  '@tanstack/query-core@5.64.0':
+    resolution: {integrity: sha512-/MPJt/AaaMzdWJZTafgMyYhEX/lGjQrNz8+NDQSk8fNoU5PHqh05FhQaBrEQafW2PeBHsRbefEf//qKMiSAbQQ==}
+
+  '@tanstack/react-query@5.64.0':
+    resolution: {integrity: sha512-tBMzlROROUcTDMpDt1NC3n9ndKnJHPB3RCpa6Bf9f31TFvqhLz879x8jldtKU+6IwMSw1Pn4K1AKA+2SYyA6TA==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -2846,6 +2857,13 @@ snapshots:
       svg-parser: 2.0.4
     transitivePeerDependencies:
       - supports-color
+
+  '@tanstack/query-core@5.64.0': {}
+
+  '@tanstack/react-query@5.64.0(react@18.3.1)':
+    dependencies:
+      '@tanstack/query-core': 5.64.0
+      react: 18.3.1
 
   '@types/babel__core@7.20.5':
     dependencies:
