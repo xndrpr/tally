@@ -6,27 +6,50 @@ import MeIcon from "@assets/icons/me.svg?react";
 import PlanIcon from "@assets/icons/plan.svg?react";
 import TrackIcon from "@assets/icons/track.svg?react";
 
+interface Tab {
+    key: string;
+    label: string;
+    icon: JSX.Element;
+    href: string;
+}
+
 export const NavigationBar = () => {
+    const tabs: Tab[] = [
+        {
+            key: "discover",
+            label: "Discover",
+            icon: <DiscoverIcon />,
+            href: "/",
+        },
+        {
+            key: "track",
+            label: "Track",
+            icon: <TrackIcon />,
+            href: "/track",
+        },
+        {
+            key: "plan",
+            label: "Plan",
+            icon: <PlanIcon />,
+            href: "/plan",
+        },
+        {
+            key: "me",
+            label: "Me",
+            icon: <MeIcon />,
+            href: "/me",
+        },
+    ];
     const currentRoute = useAtomValue(currentRouteAtom);
 
     return (
         <Links>
-            <Link href="/" $isActive={currentRoute === "discover"}>
-                <DiscoverIcon />
-                Discover
-            </Link>
-            <Link href="/track" $isActive={currentRoute === "track"}>
-                <TrackIcon />
-                Track
-            </Link>
-            <Link href="/plan" $isActive={currentRoute === "plan"}>
-                <PlanIcon />
-                Plan
-            </Link>
-            <Link href="/me" $isActive={currentRoute === "me"}>
-                <MeIcon />
-                Me
-            </Link>
+            {tabs.map(({ key, label, icon, href }) => (
+                <Link href={href} key={key} $isActive={currentRoute === key}>
+                    {icon}
+                    {label}
+                </Link>
+            ))}
         </Links>
     );
 };
