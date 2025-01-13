@@ -1,31 +1,28 @@
 import styled from "@emotion/styled";
 
-export const Layout = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-`;
 export const Links = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
+    width: 100%;
+    height: 40px;
+    padding: 4px;
+    background: #161616;
+    border-radius: 16px;
 `;
 
-export const Link = styled.a`
+export const Link = styled.a<{ $isActive: boolean }>`
     display: flex;
+    gap: 6px;
     align-items: center;
     justify-content: center;
-    padding: 4px;
-    color: #000;
+    padding: 5px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
     text-decoration: none;
-    background: #90cdff;
-    border-radius: 4px;
+    text-transform: uppercase;
+    background: ${({ $isActive }) => ($isActive ? "#0F0F0F" : "transparent")};
+    border-radius: 16px;
     transition: background 0.1s ease-in-out;
-
-    &:hover {
-        background: #70bfff;
-    }
 `;

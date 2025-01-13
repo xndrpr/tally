@@ -1,9 +1,17 @@
 import { css } from "@emotion/react";
 
 export const globalStyles = css`
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
     * {
-        margin: 0;
-        padding: 0;
         box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: Inter, sans-serif;
+    }
+
+    :root {
+        color: #fff;
+        background: #0f0f0f;
     }
 `;
