@@ -7,8 +7,10 @@ export const Links = styled.div`
     width: 100%;
     height: 40px;
     padding: 4px;
+    user-select: none;
     background: #161616;
     border-radius: 16px;
+    -webkit-user-drag: none;
 `;
 
 export const Link = styled.a<{ $isActive: boolean }>`
