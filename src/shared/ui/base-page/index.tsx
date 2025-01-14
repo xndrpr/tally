@@ -1,4 +1,5 @@
 import { Layout } from "./styled";
+import { Title } from "./ui/title";
 import { useSetAtom } from "jotai";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -15,6 +16,7 @@ export const BasePage = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <Layout>
+            <Title />
             {children}
             <NavigationBar />
         </Layout>

@@ -3,9 +3,15 @@ import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
-    plugins: [react(), svgr()],
+    plugins: [
+        react({
+            babel: {
+                plugins: ["@emotion"],
+            },
+        }),
+        svgr(),
+    ],
     server: {
         port: 3000,
     },
@@ -18,6 +24,7 @@ export default defineConfig({
             "@hooks": path.resolve(__dirname, "src/hooks"),
             "@widgets": path.resolve(__dirname, "src/widgets"),
             "@shared": path.resolve(__dirname, "src/shared"),
+            "@api": path.resolve(__dirname, "src/shared/api"),
         },
     },
 });

@@ -28,7 +28,8 @@
             "@pages/*": ["./src/pages/*"],
             "@hooks/*": ["./src/hooks/*"],
             "@widgets/*": ["./src/widgets/*"],
-            "@shared/*": ["./src/shared/*"]
+            "@shared/*": ["./src/shared/*"],
+            "@api/*": ["./src/shared/api/*"]
         }
     },
     "include": ["src"]
