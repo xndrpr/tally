@@ -1,5 +1,4 @@
 import { Section } from "../../widgets/section";
-import { useGetTrendingMovies } from "@/shared/api/queries/use-get-trending-movies";
 import { useGetTrendingShows } from "@/shared/api/queries/use-get-trending-shows";
 import { BasePage } from "@/shared/ui/base-page";
 import { MovieCard } from "@/widgets/movie-card";
@@ -7,25 +6,16 @@ import { MovieCardSkeleton } from "@/widgets/movie-card/styled";
 import { MovieCards } from "@/widgets/movie-cards/styled";
 
 export const TvShowsPage = () => {
-    const { data: trendingMovies, isPending: trendingMoviesPending } = useGetTrendingMovies();
-    const { data: trendingShows, isPending: trendingShowsPending } = useGetTrendingShows();
+    const { data: trendingToday, isPending: trendingTodayPending } = useGetTrendingShows();
 
     return (
         <BasePage>
-            <Section title="Trending Movies">
+            <Section title="Trending Tv Shows Today">
                 <MovieCards>
-                    {(trendingMoviesPending || !trendingMovies) &&
+                    {(trendingTodayPending || !trendingToday) &&
                         new Array(10).fill(0).map((_, index) => <MovieCardSkeleton key={index} />)}
-                    {trendingMovies &&
-                        trendingMovies?.map(movie => <MovieCard movie={movie} key={movie.id} />)}
-                </MovieCards>
-            </Section>
-            <Section title="Trending TV Shows">
-                <MovieCards>
-                    {(trendingShowsPending || !trendingShows) &&
-                        new Array(10).fill(0).map((_, index) => <MovieCardSkeleton key={index} />)}
-                    {trendingShows &&
-                        trendingShows?.map(show => <MovieCard movie={show} key={show.id} />)}
+                    {trendingToday &&
+                        trendingToday?.map(show => <MovieCard movie={show} key={show.id} />)}
                 </MovieCards>
             </Section>
         </BasePage>
