@@ -4,5 +4,6 @@ export const MovieCards = styled.div`
     display: flex;
     gap: 20px;
     min-height: 120px;
+    padding-bottom: 6px;
     overflow-x: scroll;
 `;

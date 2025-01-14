@@ -15,28 +15,21 @@ export const globalStyles = css`
         background: #0f0f0f;
     }
 
-    body {
-        scrollbar-color: #555 #222;
-        scrollbar-width: thin;
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
     }
 
-    body::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
+    ::-webkit-scrollbar-track {
+        background: #000;
     }
 
-    body::-webkit-scrollbar-thumb {
-        background-color: #555;
-        border: 2px solid #222;
-        border-radius: 10px;
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 8px;
     }
 
-    body::-webkit-scrollbar-track {
-        background-color: #222;
-        border-radius: 10px;
-    }
-
-    body::-webkit-scrollbar-thumb:hover {
-        background-color: #888;
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
     }
 `;
