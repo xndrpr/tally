@@ -6,8 +6,6 @@ import { QueryOptions, useQuery } from "@tanstack/react-query";
 const QUERY_KEY = "getTrendingShows";
 
 const fetchData = async (type: TrendingType): Promise<Movie[]> => {
-    await new Promise(resolve => setTimeout(resolve, 2 * 1000));
-
     const response = await api.get(`/trending/tv/${type}?language=en-US`);
 
     if (response.status === 200) {

@@ -6,8 +6,6 @@ import { Movie } from "@api/types/movie";
 const QUERY_KEY = "getTrendingMovies";
 
 const fetchData = async (type: TrendingType): Promise<Movie[]> => {
-    await new Promise(resolve => setTimeout(resolve, 2 * 1000));
-
     const response = await api.get(`/trending/movie/${type}?language=en-US`);
 
     if (response.status === 200) {
