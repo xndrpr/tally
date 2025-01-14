@@ -2,9 +2,9 @@ import { api } from "..";
 import { QueryOptions, useQuery } from "@tanstack/react-query";
 import { Movie } from "@api/types/movie";
 
-const QUERY_KEY = "getTest";
+const QUERY_KEY = "getTrendingMovies";
 
-const getDiscover = async (): Promise<Movie[]> => {
+const fetchData = async (): Promise<Movie[]> => {
     await new Promise(resolve => setTimeout(resolve, 2 * 1000));
 
     const response = await api.get("/trending/movie/day?language=en-US");
@@ -16,9 +16,9 @@ const getDiscover = async (): Promise<Movie[]> => {
     }
 };
 
-export const useGetDiscover = (queryOptions?: QueryOptions<Movie[]>) =>
+export const useGetTrendingMovies = (queryOptions?: QueryOptions<Movie[]>) =>
     useQuery({
         queryKey: [QUERY_KEY],
-        queryFn: async () => await getDiscover(),
+        queryFn: async () => await fetchData(),
         ...queryOptions,
     });
