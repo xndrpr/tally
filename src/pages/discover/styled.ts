@@ -1,8 +1,10 @@
+import Skeleton from "react-loading-skeleton";
 import styled from "@emotion/styled";
 
 export const MovieCards = styled.div`
     display: flex;
     gap: 20px;
+    min-height: 120px;
     overflow-x: scroll;
 `;
 
@@ -52,4 +54,9 @@ export const MovieTitle = styled.span`
     text-overflow: ellipsis;
     text-transform: uppercase;
     white-space: nowrap;
+`;
+
+export const MovieCardSkeleton = styled(Skeleton)`
+    width: 220px;
+    height: 120px;
 `;

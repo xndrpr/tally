@@ -5,6 +5,8 @@ import { Movie } from "@api/types/movie";
 const QUERY_KEY = "getTest";
 
 const getDiscover = async (): Promise<Movie[]> => {
+    await new Promise(resolve => setTimeout(resolve, 2 * 1000));
+
     const response = await api.get("/trending/movie/day?language=en-US");
 
     if (response.status === 200) {
