@@ -6,7 +6,9 @@ import { MovieCardSkeleton } from "@/widgets/movie-card/styled";
 import { MovieCards } from "@/widgets/movie-cards/styled";
 
 export const TvShowsPage = () => {
-    const { data: trendingToday, isPending: trendingTodayPending } = useGetTrendingShows();
+    const { data: trendingToday, isPending: trendingTodayPending } = useGetTrendingShows("day");
+    const { data: trendingThisWeek, isPending: trendingThisWeekPending } =
+        useGetTrendingShows("week");
 
     return (
         <BasePage>
@@ -16,6 +18,16 @@ export const TvShowsPage = () => {
                         new Array(10).fill(0).map((_, index) => <MovieCardSkeleton key={index} />)}
                     {trendingToday &&
                         trendingToday?.map(show => <MovieCard movie={show} key={show.id} />)}
+                </MovieCards>
+            </Section>
+            <Section title="Trending Tv Shows This Week">
+                <MovieCards>
+                    {(trendingThisWeekPending || !trendingThisWeek) &&
+                        new Array(10).fill(0).map((_, index) => <MovieCardSkeleton key={index} />)}
+                    {trendingThisWeek &&
+                        trendingThisWeek
+                            ?.reverse()
+                            ?.map(show => <MovieCard movie={show} key={show.id} />)}
                 </MovieCards>
             </Section>
         </BasePage>

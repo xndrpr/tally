@@ -1,13 +1,14 @@
 import { api } from "..";
+import { TrendingType } from "../types/trending-type";
 import { QueryOptions, useQuery } from "@tanstack/react-query";
 import { Movie } from "@api/types/movie";
 
 const QUERY_KEY = "getTrendingMovies";
 
-const fetchData = async (): Promise<Movie[]> => {
+const fetchData = async (type: TrendingType): Promise<Movie[]> => {
     await new Promise(resolve => setTimeout(resolve, 2 * 1000));
 
-    const response = await api.get("/trending/movie/day?language=en-US");
+    const response = await api.get(`/trending/movie/${type}?language=en-US`);
 
     if (response.status === 200) {
         return response.data.results as Movie[];
@@ -16,9 +17,9 @@ const fetchData = async (): Promise<Movie[]> => {
     }
 };
 
-export const useGetTrendingMovies = (queryOptions?: QueryOptions<Movie[]>) =>
+export const useGetTrendingMovies = (type: TrendingType, queryOptions?: QueryOptions<Movie[]>) =>
     useQuery({
         queryKey: [QUERY_KEY],
-        queryFn: async () => await fetchData(),
+        queryFn: async () => await fetchData(type),
         ...queryOptions,
     });
