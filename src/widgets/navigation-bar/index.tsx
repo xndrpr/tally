@@ -1,10 +1,8 @@
 import { Link, Links, NavigationBarSC } from "./styled";
 import { useAtomValue } from "jotai";
 import { currentRouteAtom } from "@/shared/atoms/current-route.atom";
-import DiscoverIcon from "@assets/icons/discover.svg?react";
-import MeIcon from "@assets/icons/me.svg?react";
-import PlanIcon from "@assets/icons/plan.svg?react";
-import TrackIcon from "@assets/icons/track.svg?react";
+import MoviesIcon from "@assets/icons/movie.svg?react";
+import TvShowsIcon from "@assets/icons/tv-show.svg?react";
 
 interface Tab {
     key: string;
@@ -16,35 +14,23 @@ interface Tab {
 export const NavigationBar = () => {
     const tabs: Tab[] = [
         {
-            key: "discover",
-            label: "Discover",
-            icon: <DiscoverIcon />,
+            key: "movies",
+            label: "Movies",
+            icon: <MoviesIcon />,
             href: "/",
         },
         {
-            key: "track",
-            label: "Track",
-            icon: <TrackIcon />,
-            href: "/track",
-        },
-        {
-            key: "plan",
-            label: "Plan",
-            icon: <PlanIcon />,
-            href: "/plan",
-        },
-        {
-            key: "me",
-            label: "Me",
-            icon: <MeIcon />,
-            href: "/me",
+            key: "tv-shows",
+            label: "TV Shows",
+            icon: <TvShowsIcon />,
+            href: "/tv-shows",
         },
     ];
     const currentRoute = useAtomValue(currentRouteAtom);
 
     return (
         <NavigationBarSC>
-            <Links>
+            <Links $columns={tabs.length}>
                 {tabs.map(({ key, label, icon, href }) => (
                     <Link href={href} key={key} $isActive={currentRoute === key}>
                         {icon}

@@ -1,5 +1,5 @@
 import { atom } from "jotai";
 
-export type CurrentRoute = "discover" | "track" | "plan" | "me";
+export type CurrentRoute = "movies" | "tv-shows";
 
-export const currentRouteAtom = atom<CurrentRoute>("discover");
+export const currentRouteAtom = atom<CurrentRoute>("movies");

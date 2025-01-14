@@ -1,10 +1,8 @@
 import { globalStyles } from "./styled";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Global } from "@emotion/react";
-import { MePage } from "@/pages/me";
-import { PlanPage } from "@/pages/plan";
-import { TrackPage } from "@/pages/track";
-import { DiscoverPage } from "@pages/discover";
+import { MoviesPage } from "@/pages/movies";
+import { TvShowsPage } from "@/pages/tv-shows";
 
 export const App = () => {
     return (
@@ -12,10 +10,10 @@ export const App = () => {
             <Global styles={globalStyles} />
             <Router>
                 <Routes>
-                    <Route path="/" element={<DiscoverPage />} />
-                    <Route path="/track" element={<TrackPage />} />
-                    <Route path="/plan" element={<PlanPage />} />
-                    <Route path="/me" element={<MePage />} />
+                    <Route path="/" element={<MoviesPage />} />
+                    <Route path="/movies" element={<MoviesPage />} />
+                    <Route path="/tv-shows" element={<TvShowsPage />} />
+                    <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </Router>
         </div>

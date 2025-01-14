@@ -11,7 +11,7 @@ export const BasePage = ({ children }: { children: React.ReactNode }) => {
     const path = useLocation().pathname;
 
     useEffect(() => {
-        setRoute(path === "/" ? "discover" : (path.slice(1) as CurrentRoute));
+        setRoute(path === "/" ? "movies" : (path.slice(1) as CurrentRoute));
     }, []);
 
     return (

@@ -10,9 +10,9 @@ export const NavigationBarSC = styled.div`
     padding-top: 8px;
 `;
 
-export const Links = styled.div`
+export const Links = styled.div<{ $columns: number }>`
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(${({ $columns }) => $columns}, 1fr);
     gap: 12px;
     width: 100%;
     height: 40px;

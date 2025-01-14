@@ -1,12 +1,12 @@
-import { Section } from "./ui/section";
 import { useGetTrendingMovies } from "@/shared/api/queries/use-get-trending-movies";
 import { useGetTrendingShows } from "@/shared/api/queries/use-get-trending-shows";
 import { BasePage } from "@/shared/ui/base-page";
 import { MovieCard } from "@/widgets/movie-card";
 import { MovieCardSkeleton } from "@/widgets/movie-card/styled";
 import { MovieCards } from "@/widgets/movie-cards/styled";
+import { Section } from "@/widgets/section";
 
-export const DiscoverPage = () => {
+export const MoviesPage = () => {
     const { data: trendingMovies, isPending: trendingMoviesPending } = useGetTrendingMovies();
     const { data: trendingShows, isPending: trendingShowsPending } = useGetTrendingShows();
 
