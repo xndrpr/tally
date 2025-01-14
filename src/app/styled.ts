@@ -14,4 +14,29 @@ export const globalStyles = css`
         color: #fff;
         background: #0f0f0f;
     }
+
+    body {
+        scrollbar-color: #555 #222;
+        scrollbar-width: thin;
+    }
+
+    body::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #555;
+        border: 2px solid #222;
+        border-radius: 10px;
+    }
+
+    body::-webkit-scrollbar-track {
+        background-color: #222;
+        border-radius: 10px;
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+        background-color: #888;
+    }
 `;
