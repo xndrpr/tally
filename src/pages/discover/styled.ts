@@ -17,6 +17,7 @@ export const MovieCard = styled.div<{ $image: string }>`
     height: 120px;
     padding: 8px;
     margin: var(--padding);
+    cursor: pointer;
     background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)),
         url(${({ $image }) => $image});
     background-position: center;
