@@ -1,4 +1,5 @@
 import { Content, Layout } from "./styled";
+import { SearchBox } from "./ui/search-box";
 import { Title } from "./ui/title";
 import { useSetAtom } from "jotai";
 import { useEffect } from "react";
@@ -17,6 +18,7 @@ export const BasePage = ({ children }: { children: React.ReactNode }) => {
     return (
         <Layout>
             <Title />
+            <SearchBox />
             <Content>{children}</Content>
             <NavigationBar />
         </Layout>

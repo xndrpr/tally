@@ -1,6 +1,6 @@
 import { Section } from "../../widgets/section";
 import { useGetTrendingShows } from "@/shared/api/queries/use-get-trending-shows";
-import { BasePage } from "@/shared/ui/base-page";
+import { BasePage } from "@/widgets/base-page";
 import { DetailsModal } from "@/widgets/details-modal";
 import { MovieCard } from "@/widgets/movie-card";
 import { MovieCardSkeleton } from "@/widgets/movie-card/styled";
