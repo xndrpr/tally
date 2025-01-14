@@ -1,4 +1,4 @@
-import { Link, Links } from "./styled";
+import { Link, Links, NavigationBarSC } from "./styled";
 import { useAtomValue } from "jotai";
 import { currentRouteAtom } from "@/shared/atoms/current-route.atom";
 import DiscoverIcon from "@assets/icons/discover.svg?react";
@@ -43,13 +43,15 @@ export const NavigationBar = () => {
     const currentRoute = useAtomValue(currentRouteAtom);
 
     return (
-        <Links>
-            {tabs.map(({ key, label, icon, href }) => (
-                <Link href={href} key={key} $isActive={currentRoute === key}>
-                    {icon}
-                    {label}
-                </Link>
-            ))}
-        </Links>
+        <NavigationBarSC>
+            <Links>
+                {tabs.map(({ key, label, icon, href }) => (
+                    <Link href={href} key={key} $isActive={currentRoute === key}>
+                        {icon}
+                        {label}
+                    </Link>
+                ))}
+            </Links>
+        </NavigationBarSC>
     );
 };

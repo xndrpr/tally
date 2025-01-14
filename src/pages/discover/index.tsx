@@ -1,14 +1,9 @@
-import {
-    MovieCard,
-    MovieCards,
-    MovieCardSkeleton,
-    MovieRating,
-    MovieTitle,
-    MovieYear,
-} from "./styled";
 import { Section } from "./ui/section";
 import { useGetDiscover } from "@/shared/api/queries/use-get-discover";
 import { BasePage } from "@/shared/ui/base-page";
+import { MovieCard } from "@/widgets/movie-card";
+import { MovieCardSkeleton } from "@/widgets/movie-card/styled";
+import { MovieCards } from "@/widgets/movie-cards/styled";
 
 export const DiscoverPage = () => {
     const { data, isPending } = useGetDiscover();
@@ -19,21 +14,21 @@ export const DiscoverPage = () => {
                 <MovieCards>
                     {(isPending || !data) &&
                         new Array(10).fill(0).map((_, index) => <MovieCardSkeleton key={index} />)}
-                    {data &&
-                        data?.map(movie => (
-                            <MovieCard
-                                key={movie.id}
-                                $image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                            >
-                                <MovieTitle>{movie.title}</MovieTitle>
-                                <MovieYear>
-                                    {movie.release_date.split("-")[0] || new Date().getFullYear()}
-                                </MovieYear>
-                                <MovieRating $percent={movie.vote_average * 10}>
-                                    {Math.trunc(movie.vote_average * 10)}%
-                                </MovieRating>
-                            </MovieCard>
-                        ))}
+                    {data && data?.map(movie => <MovieCard movie={movie} key={movie.id} />)}
+                </MovieCards>
+            </Section>
+            <Section title="Best of all time">
+                <MovieCards>
+                    {(isPending || !data) &&
+                        new Array(10).fill(0).map((_, index) => <MovieCardSkeleton key={index} />)}
+                    {data && data?.map(movie => <MovieCard movie={movie} key={movie.id} />)}
+                </MovieCards>
+            </Section>
+            <Section title="Something else">
+                <MovieCards>
+                    {(isPending || !data) &&
+                        new Array(10).fill(0).map((_, index) => <MovieCardSkeleton key={index} />)}
+                    {data && data?.map(movie => <MovieCard movie={movie} key={movie.id} />)}
                 </MovieCards>
             </Section>
         </BasePage>

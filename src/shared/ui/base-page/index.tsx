@@ -1,4 +1,4 @@
-import { Layout } from "./styled";
+import { Content, Layout } from "./styled";
 import { Title } from "./ui/title";
 import { useSetAtom } from "jotai";
 import { useEffect } from "react";
@@ -17,7 +17,7 @@ export const BasePage = ({ children }: { children: React.ReactNode }) => {
     return (
         <Layout>
             <Title />
-            {children}
+            <Content>{children}</Content>
             <NavigationBar />
         </Layout>
     );

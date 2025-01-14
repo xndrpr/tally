@@ -1,5 +1,15 @@
 import styled from "@emotion/styled";
 
+export const NavigationBarSC = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    padding-top: 8px;
+`;
+
 export const Links = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
