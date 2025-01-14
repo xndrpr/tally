@@ -32,4 +32,10 @@ export const globalStyles = css`
     ::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
+
+    @media (pointer: none), (pointer: coarse) {
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    }
 `;

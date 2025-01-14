@@ -6,4 +6,8 @@ export const MovieCards = styled.div`
     min-height: 120px;
     padding-bottom: 6px;
     overflow-x: scroll;
+
+    @media (pointer: none), (pointer: coarse) {
+        padding: 0;
+    }
 `;
