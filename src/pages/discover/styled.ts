@@ -17,7 +17,8 @@ export const MovieCard = styled.div<{ $image: string }>`
     height: 120px;
     padding: 8px;
     margin: var(--padding);
-    background-image: url(${({ $image }) => $image});
+    background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)),
+        url(${({ $image }) => $image});
     background-position: center;
     background-size: cover;
     border-radius: 12px;
@@ -54,6 +55,39 @@ export const MovieTitle = styled.span`
     text-overflow: ellipsis;
     text-transform: uppercase;
     white-space: nowrap;
+`;
+
+export const MovieYear = styled.span`
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 8px;
+    color: #ffffff80;
+`;
+
+export const MovieRating = styled.span<{ $percent: number }>`
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin: 8px;
+    font-size: 10px;
+    color: #fff;
+    border: 2px solid
+        ${props => {
+            if (props.$percent < 50) {
+                return "#f44336";
+            } else if (props.$percent < 80) {
+                return "#ff9800";
+            } else {
+                return "#4caf50";
+            }
+        }};
+    border-radius: 50%;
 `;
 
 export const MovieCardSkeleton = styled(Skeleton)`
